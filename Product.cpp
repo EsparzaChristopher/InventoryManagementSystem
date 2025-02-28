@@ -73,3 +73,7 @@ int Product<T>::generateStock(int min, int max) {
     uniform_int_distribution<> dist(min, max);
     return dist(gen);
 }
+template <typename T> 
+T Product<T> :: getPrice() const{
+    return price;
+}
