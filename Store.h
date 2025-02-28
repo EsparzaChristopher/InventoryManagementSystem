@@ -33,7 +33,6 @@ Store<T> :: ~Store(){
 }
 template <typename T>
 void Store<T> :: addProduct(Product<T>& p){
-    cout << "NUMPRODUCTS" << numProducts << endl << numSpace;
     if(numProducts >= numSpace){
         numSpace *= 2;
         Product<T>* tempArray = new Product<T>[numSpace];
