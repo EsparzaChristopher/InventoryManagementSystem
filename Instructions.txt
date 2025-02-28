@@ -1,0 +1,80 @@
+Objective
+Develop an Inventory Management System that enables 
+
+businesses to track products, manage stock levels, and process sales.
+ The system will incorporate function overloading, operator overloading,
+  friend functions, pointers, templates, and C++11 random number generation.
+
+
+
+Project Overview
+You will create an Inventory System that:
+
+Manages multiple product categories using a templated Product class.
+Uses overloaded constructors to initialize products in various ways.
+Overloads operators (+, -, ==, !=, <<, >>) for inventory management.
+Uses friend functions for input/output operations.
+Implements pointers for dynamic memory allocation to store product lists.
+Uses C++11 random number generators to assign product stock levels automatically.
+Project Requirements
+1. Implement a Product Class with Dynamic Memory *******************************************
+Store product details dynamically using pointers.
+The class should have the following private attributes:
+
+string name;
+int productID;
+double price;
+int stock;
+ 
+Implement constructors with function overloading:
+Default constructor (Product() - initializes with default values).
+Parameterized constructor (Product(name, price, stock)).
+Copy constructor.
+2. Implement Operator Overloading **************************************************
+Overload + and - to update stock when restocking or selling products:
+ 
+Product operator+(int quantity); // Restock
+Product operator-(int quantity); // Sell
+Overload == and != to compare two products by productID.
+Overload << and >> (as friend functions) for input and output:
+ 
+friend ostream& operator<<(ostream& os, const Product& p);
+friend istream& operator>>(istream& is, Product& p);
+3. Implement Method Chaining with this Pointer **************************************
+Implement setPrice() and setStock() that allow:
+ 
+product.setPrice(19.99).setStock(50);
+
+
+
+
+
+4. Implement a Store Class that Manages Inventory Using a Pointer-Based Array
+Store multiple products dynamically using a pointer to an array:
+ 
+Product* inventory;
+int numProducts;
+Implement:
+A constructor that initializes inventory.
+A destructor that deallocates memory.
+A method to add products dynamically.
+
+
+
+
+5. Implement Templates
+Convert Product into a template class to support multiple product types (int, double, etc.).
+6. Implement a Function Template for Bulk Discounts
+Implement a function template to apply discounts on all products:
+ 
+template <typename T>
+void applyDiscount(Product<T>& p, double percentage);
+
+
+7. Use C++11 Random Number Generator to Auto-Fill Stock Levels ********************
+Implement a static method in Product that generates random stock levels:
+ 
+static int generateStock(int min, int max);
+Example usage:
+ 
+Product<int> laptop("Laptop", 999.99, Product<int>::generateStock(10, 50));
